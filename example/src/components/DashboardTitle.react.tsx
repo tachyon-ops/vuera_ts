@@ -15,7 +15,7 @@ class TestB extends React.Component<FooProps> {
   }
 }
 
-// const TestC = (props: FooProps) => <p>{props.foo}</p>;
+const TestC = (props: FooProps) => <p>{props.foo}</p>;
 
 // const TestC = (props: FooProps): JSX.Element => <p>{props.foo}</p>;
 // const TestAA: React.FC<FooProps> = (props) => <div>{props.foo}</div>;
@@ -61,7 +61,7 @@ export function DashboardTitleReact(props: Props): JSX.Element {
           {/* <TestBB foo="barBB" /> */}
           <TestA foo="TestA without further JSX" />
           <TestB foo="TestB Class with further JSX" />
-          {/* <TestC foo="TestA FC with further JSX" /> */}
+          <TestC foo="TestA FC with further JSX" />
         </Toolbar>
       </AppBar>
     </div>
