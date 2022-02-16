@@ -11,6 +11,7 @@ interface FooProps {
 // const TestA = (props: FooProps): JSX.Element => <p>{props.foo}</p>;
 // const TestC = (props: FooProps): JSX.Element => <p>{props.foo}</p>;
 const TestB: React.FC<FooProps> = (props) => <>{props.foo}</>;
+
 function Test(props: FooProps) {
   const [seconds, setSeconds] = useState(0);
 
