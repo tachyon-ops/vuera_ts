@@ -1,3 +1,4 @@
+import Vue from "vue";
 import ReactWrapper from "../wrappers/React";
 
 export default function VueResolver<T>(component: (props: T) => any) {
@@ -5,7 +6,7 @@ export default function VueResolver<T>(component: (props: T) => any) {
     components: { ReactWrapper },
     props: ["passedProps"],
     inheritAttrs: false,
-    render(createElement: any) {
+    render(createElement: Vue.CreateElement) {
       return createElement(
         "react-wrapper",
         {

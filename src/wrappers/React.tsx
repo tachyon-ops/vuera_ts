@@ -61,9 +61,7 @@ export default {
   name: "ReactInVueRawVueComp",
   props: ["component", "passedProps"],
   render(createElement: any) {
-    (this as any).createElement = createElement;
-    const Component = (this as any).$props.component;
-
+    (this as any).createElement = createElement; // save for later
     return createElement("div", { ref: "react" });
   },
   methods: {
@@ -78,6 +76,7 @@ export default {
 
       let NewComp: React.FC;
 
+      console.log(comp);
       if (!comp.functional) {
         const Component = makeReactContainer(comp);
         NewComp = (props: any) => (
