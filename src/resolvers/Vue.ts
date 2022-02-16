@@ -1,6 +1,6 @@
 import ReactWrapper from "../wrappers/React";
 
-export default function VueResolver(component: any) {
+export default function VueResolver<T>(component: (props: T) => any) {
   return {
     components: { ReactWrapper },
     props: ["passedProps"],
@@ -19,5 +19,5 @@ export default function VueResolver(component: any) {
         (this as any).$slots.default
       );
     },
-  };
+  } as unknown as (props: T) => JSX.Element;
 }

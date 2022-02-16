@@ -21,7 +21,7 @@ export default {
         ? Object.entries(mergedValue).reduce(
             (acc, [k, v]) => ({
               ...acc,
-              [k]: isReactComponent(v) ? VueResolver(v) : v,
+              [k]: isReactComponent(v) ? VueResolver(v as any) : v,
             }),
             {}
           )

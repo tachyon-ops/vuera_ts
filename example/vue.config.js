@@ -13,6 +13,7 @@ module.exports = {
               presets: ["babel-preset-react-app"],
               plugins: [
                 // "react-refresh/babel"
+                "transform-react-jsx",
               ],
               // presets: [
               //   "@babel/preset-env",
