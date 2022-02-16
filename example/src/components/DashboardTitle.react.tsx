@@ -3,22 +3,29 @@ import React, { useEffect, useState } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import { ReactInVue } from "vuera_ts_lib";
 
 interface FooProps {
   foo: string;
 }
 
-// const TestA = (props: FooProps): JSX.Element => <p>{props.foo}</p>;
+const TestA = (props: FooProps): JSX.Element => <>{props.foo}</>;
+class TestB extends React.Component<FooProps> {
+  render(): React.ReactNode {
+    return <p>{this.props.foo}</p>;
+  }
+}
+
+// const TestC = (props: FooProps) => <p>{props.foo}</p>;
+
 // const TestC = (props: FooProps): JSX.Element => <p>{props.foo}</p>;
-const TestAA: React.FC<FooProps> = (props) => <div>{props.foo}</div>;
-const TestBA: React.FC<FooProps> = (props) => <>{props.foo}</>;
-const TestAB: React.FC<FooProps> = (props) => {
-  return <>{props.foo}</>;
-};
-const TestBB: React.FC<FooProps> = (props) => {
-  return <>{props.foo}</>;
-};
+// const TestAA: React.FC<FooProps> = (props) => <div>{props.foo}</div>;
+// const TestBA: React.FC<FooProps> = (props) => <>{props.foo}</>;
+// const TestAB: React.FC<FooProps> = (props) => {
+//   return <>{props.foo}</>;
+// };
+// const TestBB: React.FC<FooProps> = (props) => {
+//   return <div>{props.foo}</div>;
+// };
 
 function Test(props: FooProps) {
   const [seconds, setSeconds] = useState(0);
@@ -49,9 +56,12 @@ export function DashboardTitleReact(props: Props): JSX.Element {
             <Test foo="bar" />
           </Typography>
           {/* <TestAA foo="barAA" /> */}
-          <TestBA foo="barBA" />
-          <TestAB foo="barAB" />
-          <TestBB foo="barBB" />
+          {/* <TestBA foo="barBA" /> */}
+          {/* <TestAB foo="barAB" /> */}
+          {/* <TestBB foo="barBB" /> */}
+          <TestA foo="TestA without further JSX" />
+          <TestB foo="TestB Class with further JSX" />
+          {/* <TestC foo="TestA FC with further JSX" /> */}
         </Toolbar>
       </AppBar>
     </div>
