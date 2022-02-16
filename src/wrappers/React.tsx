@@ -2,8 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import VueWrapper from "./Vue";
 
-const makeReactContainer = (Component: any) => {
-  return class ReactInVue extends React.Component {
+const makeReactContainer = (Component: any) =>
+  class ReactInVue extends React.Component {
     static displayName = `ReactInVue${
       Component.displayName || Component.name || "Component"
     }`;
@@ -20,9 +20,12 @@ const makeReactContainer = (Component: any) => {
     }
 
     wrapVueChildren(children: any) {
-      return {
-        render: (createElement: any) => createElement("div", children),
-      };
+      console.log("wrapVueChildren: ", children);
+      if (children)
+        return {
+          render: (createElement: any) => createElement("div", children),
+        };
+      return null;
     }
 
     render() {
@@ -39,37 +42,65 @@ const makeReactContainer = (Component: any) => {
       const VueWrapperRender = VueWrapper as unknown as (props: {
         component: any;
       }) => JSX.Element;
+
+      if ("ReactInVueTestAA" === ReactInVue.displayName) {
+        console.log("THIS IS IT!", Component.render);
+      }
+
+      // console.log("wrappedChildren: ", wrappedChildren);
+
       return (
         <Component {...rest}>
-          {children && <VueWrapperRender component={wrappedChildren} />}
+          {wrappedChildren && <VueWrapperRender component={wrappedChildren} />}
         </Component>
       );
     }
   };
-};
 
 export default {
+  name: "ReactInVueRawVueComp",
   props: ["component", "passedProps"],
   render(createElement: any) {
+    (this as any).createElement = createElement;
+    const Component = (this as any).$props.component;
+
     return createElement("div", { ref: "react" });
   },
   methods: {
-    mountReactComponent(component: any) {
-      const Component = makeReactContainer(component);
+    mountReactComponent(comp: any) {
+      const s = this as any;
+      console.log("before creating NewComp");
+      console.log("Name: ", comp.name || comp.displayName);
+      console.log(comp);
+
       const children =
-        (this as any).$slots.default !== undefined
-          ? { children: (this as any).$slots.default }
-          : {};
+        s.$slots.default !== undefined ? { children: s.$slots.default } : {};
+
+      let NewComp: React.FC;
+
+      if (!comp.functional) {
+        const Component = makeReactContainer(comp);
+        NewComp = (props: any) => (
+          <Component
+            {...props}
+            ref={(ref: any) => (s.reactComponentRef = ref)}
+          />
+        );
+      } else {
+        NewComp = (props: any) => <>{comp.render(s.createElement, props)}</>;
+      }
+      // NewComp = (props: any) => <>{comp.render(s.createElement, props)}</>;
+
       ReactDOM.render(
-        <Component
-          {...(this as any).$props.passedProps}
-          {...(this as any).$attrs}
-          {...(this as any).$listeners}
+        <NewComp
+          {...s.$props.passedProps}
+          {...s.$attrs}
+          {...s.$listeners}
           {...children}
-          ref={(ref) => ((this as any).reactComponentRef = ref)}
         />,
-        (this as any).$refs.react
+        s.$refs.react
       );
+      console.log("after creating NewComp");
     },
   },
   mounted() {

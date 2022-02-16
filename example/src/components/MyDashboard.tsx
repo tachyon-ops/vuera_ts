@@ -7,11 +7,11 @@ import { ReactInVue } from "vuera_ts_lib";
 
 const DashboardTitle = ReactInVue(DashboardTitleReact);
 
-@Component({})
+@Component({
+  name: "MyDashboard2",
+})
 export default class MyDashboard extends Vue {
   render(h: any) {
-    // return <h3>My Dashboard</h3>;
-    // return <DashboardTitleReact title={"My Dashboard Title"} />;
     return <DashboardTitle title={"My Dashboard Title"} />;
   }
 }
