@@ -4,6 +4,7 @@
     "outDir": "dist",
     "target": "ES2018",
     "module": "commonjs",
+    "allowJs": true,
     "paths": {
       "@/*": [
         "./src/*"
@@ -26,9 +27,9 @@
     "tests/**/*.tsx",
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
   ],
   "files": [
-    "src/vue-shims.d.ts",
+    "src/shims-vue.d.ts",
   ]
 }
