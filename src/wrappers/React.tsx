@@ -75,9 +75,7 @@ export default {
         s.$slots.default !== undefined ? { children: s.$slots.default } : {};
 
       let NewComp: React.FC;
-
-      console.log(comp);
-      if (!comp.functional) {
+      // if (!comp.functional) {
         const Component = makeReactContainer(comp);
         NewComp = (props: any) => (
           <Component
@@ -85,9 +83,9 @@ export default {
             ref={(ref: any) => (s.reactComponentRef = ref)}
           />
         );
-      } else {
-        NewComp = (props: any) => <>{comp.render(s.createElement, props)}</>;
-      }
+      // } else {
+      //   NewComp = (props: any) => <>{comp.render(s.createElement, props)}</>;
+      // }
       // NewComp = (props: any) => <>{comp.render(s.createElement, props)}</>;
 
       ReactDOM.render(

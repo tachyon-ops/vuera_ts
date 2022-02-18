@@ -22,10 +22,13 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "tests/**/*.ts",
+    "src/**/*.vue",
     "tests/**/*.tsx",
   ],
   "exclude": [
-    "node_modules",
-    "src/**/*.vue"
+    "node_modules"
+  ],
+  "files": [
+    "src/vue-shims.d.ts",
   ]
 }

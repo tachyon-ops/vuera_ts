@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 interface FooProps {
   foo: string;
@@ -6,6 +6,19 @@ interface FooProps {
 
 const TestA = () => <>TestA</>;
 const TestB = () => <p>TestB</p>;
+
+function Counter(props: FooProps) {
+  const [seconds, setSeconds] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSeconds((seconds) => seconds + 1);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return <>{` ${props.foo} counter: ${seconds}`}</>;
+}
 
 export const Test: React.FC<FooProps> = ({ foo }) => (
   <div
@@ -21,5 +34,7 @@ export const Test: React.FC<FooProps> = ({ foo }) => (
     <br />
     <TestA />
     <TestB />
+    <br />
+    <Counter foo={foo} />
   </div>
 );

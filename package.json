@@ -1,6 +1,6 @@
 {
   "name": "vuera_ts_lib",
-  "version": "1.0.0",
+  "version": "1.0.0-rc01",
   "description": "Vuera lib migrated to TS",
   "license": "MIT",
   "main": "./lib/cjs/index.js",
@@ -13,19 +13,19 @@
     "build": "microbundle",
     "dev": "microbundle watch"
   },
+  "peerDependencies": {
+    "vue": "^2.6.11"
+  },
   "devDependencies": {
-    "@types/react": "^17.0.39",
-    "@types/react-dom": "^17.0.11",
+    "@types/react": "^16.9.27",
+    "@types/react-dom": "^16.9.7",
     "@typescript-eslint/parser": "^5.12.0",
     "microbundle": "^0.14.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
     "typescript": "^4.5.5",
     "vue": "^2.6.11"
   },
-  "peerDependencies": {
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0",
-    "vue": "^2.6.11"
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }

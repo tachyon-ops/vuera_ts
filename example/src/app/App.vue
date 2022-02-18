@@ -6,23 +6,24 @@
 </template>
 
 <script lang="ts">
-import { Test } from "./Test.react";
-
+import Vue from "vue";
 import { ReactInVue } from "vuera_ts_lib";
+
+import { Test } from "./Test.react";
 
 const TestInVue = ReactInVue(Test);
 console.log(TestInVue);
 
-export default {
+export default Vue.extend({
   data() {
     return {
-      msg: "Hi from vue!",
+      msg: "Hi from vue2!",
     };
   },
   components: {
     "my-test": TestInVue,
   },
-};
+});
 </script>
 
 <style scoped>

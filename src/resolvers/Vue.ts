@@ -1,4 +1,4 @@
-import Vue from "vue";
+import { AsyncComponent, Component } from "vue";
 import ReactWrapper from "../wrappers/React";
 
 export default function VueResolver<T>(component: (props: T) => any) {
@@ -20,5 +20,7 @@ export default function VueResolver<T>(component: (props: T) => any) {
         (this as any).$slots.default
       );
     },
-  } as unknown as (props: T) => JSX.Element;
+  } as unknown as
+    | Component<any, any, any, T>
+    | AsyncComponent<any, any, any, T>;
 }

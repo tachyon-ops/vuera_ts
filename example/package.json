@@ -9,12 +9,10 @@
   },
   "dependencies": {
     "@babel/polyfill": "~7.2",
-    "@types/react": "^17.0.39",
-    "react": "^17.0.2",
     "vue": "~2.6",
     "vue-property-decorator": "^9.1.2",
     "vue-router": "~3.0",
-    "vuera_ts_lib": ".."
+    "vuera_ts_lib": "./../vuera_ts_lib-v1.0.0-rc01.tgz"
   },
   "devDependencies": {
     "@babel/core": "~7.2",
@@ -42,7 +40,6 @@
     "friendly-errors-webpack-plugin": "~1.7",
     "html-webpack-plugin": "~3.2",
     "mini-css-extract-plugin": "~0.5",
-    "node-sass": "~4.12",
     "optimize-css-assets-webpack-plugin": "~5.0",
     "sass-loader": "~7.1",
     "ts-loader": "^8.2.0",
