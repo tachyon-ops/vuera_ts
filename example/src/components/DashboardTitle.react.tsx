@@ -15,7 +15,7 @@ class TestB extends React.Component<FooProps> {
   }
 }
 
-const TestC = (props: FooProps) => <>{props.foo}</>;
+const TestC = (props: FooProps) => <p>{props.foo}</p>;
 
 // const TestC = (props: FooProps): JSX.Element => <p>{props.foo}</p>;
 // const TestAA: React.FC<FooProps> = (props) => <div>{props.foo}</div>;
