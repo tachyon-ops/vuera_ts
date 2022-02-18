@@ -14,7 +14,7 @@ import { ReactInVue } from "vuera_ts_lib";
 import { Test } from "./Test.react";
 
 const TestInVue = ReactInVue(Test);
-console.log(TestInVue);
+// console.log(TestInVue);
 
 export default Vue.extend({
   data() {

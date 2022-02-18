@@ -20,7 +20,7 @@ const makeReactContainer = (Component: any) =>
     }
 
     wrapVueChildren(children: any) {
-      console.log("wrapVueChildren: ", children);
+      // console.log("wrapVueChildren: ", children);
       if (children)
         return {
           render: (createElement: any) => createElement("div", children),
@@ -44,7 +44,7 @@ const makeReactContainer = (Component: any) =>
       }) => JSX.Element;
 
       if ("ReactInVueTestAA" === ReactInVue.displayName) {
-        console.log("THIS IS IT!", Component.render);
+        // console.log("THIS IS IT!", Component.render);
       }
 
       // console.log("wrappedChildren: ", wrappedChildren);
@@ -67,9 +67,9 @@ export default {
   methods: {
     mountReactComponent(comp: any) {
       const s = this as any;
-      console.log("before creating NewComp");
-      console.log("Name: ", comp.name || comp.displayName);
-      console.log(comp);
+      // console.log("before creating NewComp");
+      // console.log("Name: ", comp.name || comp.displayName);
+      // console.log(comp);
 
       const children =
         s.$slots.default !== undefined ? { children: s.$slots.default } : {};
@@ -97,7 +97,7 @@ export default {
         />,
         s.$refs.react
       );
-      console.log("after creating NewComp");
+      // console.log("after creating NewComp");
     },
   },
   mounted() {
