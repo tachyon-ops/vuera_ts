@@ -7117,9 +7117,8 @@ vue@~2.6:
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.14.tgz#e51aa5250250d569a3fbad3a8a5a687d6036e235"
   integrity sha512-x2284lgYvjOMj3Za7kqzRcUSxBboHqtgRE2zlos1qWaOye5yUmHn42LB1250NJBLRwEcdrB0JRwyPTEPhfQjiQ==
 
-vuera_ts_lib@./../vuera_ts_lib-v1.0.0-rc01.tgz:
+vuera_ts_lib@./..:
   version "1.0.0-rc01"
-  resolved "./../vuera_ts_lib-v1.0.0-rc01.tgz#ee6689a3b1a3832437582b61b4e7636fb0cbb29c"
   dependencies:
     react "^16.13.1"
     react-dom "^16.13.1"
