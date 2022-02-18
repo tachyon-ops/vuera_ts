@@ -1,4 +1,6 @@
 import Vue from "vue"
+
+// @ts-ignore
 import App from "./app/App.vue"
 
 Vue.config.productionTip = false

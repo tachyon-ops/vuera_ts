@@ -1,7 +1,9 @@
 <template>
   <div class="toto">
     Hello there 2
-    <my-test :foo="msg" />
+    <my-test :foo="msg">
+      <h4>I am VUE child!</h4>
+    </my-test>
   </div>
 </template>
 
@@ -17,7 +19,7 @@ console.log(TestInVue);
 export default Vue.extend({
   data() {
     return {
-      msg: "Hi from vue2!",
+      msg: "Hi from vue 3!",
     };
   },
   components: {

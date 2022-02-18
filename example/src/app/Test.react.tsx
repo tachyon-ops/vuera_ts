@@ -20,7 +20,7 @@ function Counter(props: FooProps) {
   return <>{` ${props.foo} counter: ${seconds}`}</>;
 }
 
-export const Test: React.FC<FooProps> = ({ foo }) => (
+export const Test: React.FC<FooProps> = ({ foo, children }) => (
   <div
     style={{
       padding: 10,
@@ -36,5 +36,6 @@ export const Test: React.FC<FooProps> = ({ foo }) => (
     <TestB />
     <br />
     <Counter foo={foo} />
+    {children}
   </div>
 );
