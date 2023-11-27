@@ -1,5 +1,7 @@
 # Vuera in TypeScript
 
+PROJECT MOVED TO [React Vue TS](https://github.com/tachyon-ops/react_vue_ts)!
+
 This is the `vuera` lib from `akxcv` (amazing effort man!). Check it [Vuera GH](https://github.com/akxcv/vuera).
 
 ## TODO
